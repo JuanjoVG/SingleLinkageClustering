@@ -26,9 +26,6 @@ class SingleLinkageClusteringTest(unittest.TestCase):
         {'C1': Cluster('C1', [points['P1'], points['P2'], points['P3'], points['P5'], points['P4']])}
     ]
 
-    def setUp(self):
-        pass
-
     def test_simplest_clustering_version_with_toy_case(self):
         slc = SingleLinkageClustering(self.points.values())
         clusterings = slc.clustering(k=1)
