@@ -1,5 +1,4 @@
 import copy
-
 import math
 
 from Cluster import Cluster
@@ -8,7 +7,7 @@ from Cluster import Cluster
 class SingleLinkageClustering:
     def __init__(self, points):
         self.points = points
-        self.clusters = {'C' + str(idx + 1): Cluster('C' + str(idx), [p]) for idx, p in enumerate(self.points)}
+        self.clusters = {'C' + str(idx + 1): Cluster('C' + str(idx + 1), [p]) for idx, p in enumerate(self.points)}
         self.clusterings = [copy.deepcopy(self.clusters)]
 
     def clustering(self, k=1):

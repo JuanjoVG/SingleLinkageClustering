@@ -20,3 +20,8 @@ class Cluster:
 
     def __repr__(self):
         return str([str(p.id) for p in self.points])
+
+    def __eq__(self, other):
+        if isinstance(self, other.__class__):
+            return self.__dict__ == other.__dict__
+        return False

@@ -1,6 +1,7 @@
+import matplotlib.pyplot as plt
+
 from Point import Point
 from SingleLinkageClustering import SingleLinkageClustering
-import matplotlib.pyplot as plt
 
 points = [
     Point('P1', [1.5, 1.5]),
@@ -11,7 +12,7 @@ points = [
 ]
 
 slc = SingleLinkageClustering(points)
-clusterings = slc.clustering(k=5)
+clusterings = slc.clustering(k=1)
 
 for clustering in clusterings:
     print(clustering)
