@@ -2,7 +2,9 @@ import unittest
 
 from Cluster import Cluster
 from Point import Point
-from SingleLinkageClustering import SingleLinkageClustering
+from SingleLinkageClusteringV1 import SingleLinkageClusteringV1
+from SingleLinkageClusteringV2 import SingleLinkageClusteringV2
+from SingleLinkageClusteringV3 import SingleLinkageClusteringV3
 
 
 class SingleLinkageClusteringTest(unittest.TestCase):
@@ -26,8 +28,18 @@ class SingleLinkageClusteringTest(unittest.TestCase):
         {'C1': Cluster('C1', [points['P1'], points['P2'], points['P3'], points['P5'], points['P4']])}
     ]
 
-    def test_simplest_clustering_version_with_toy_case(self):
-        slc = SingleLinkageClustering(self.points.values())
+    def test_first_clustering_version_with_toy_case(self):
+        slc = SingleLinkageClusteringV1(self.points.values())
+        clusterings = slc.clustering(k=1)
+        self.assertEqual(clusterings, self.correct_clusterings)
+
+    def test_second_clustering_version_with_toy_case(self):
+        slc = SingleLinkageClusteringV2(self.points.values())
+        clusterings = slc.clustering(k=1)
+        self.assertEqual(clusterings, self.correct_clusterings)
+
+    def test_third_clustering_version_with_toy_case(self):
+        slc = SingleLinkageClusteringV3(self.points.values())
         clusterings = slc.clustering(k=1)
         self.assertEqual(clusterings, self.correct_clusterings)
 

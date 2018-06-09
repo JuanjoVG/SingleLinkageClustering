@@ -2,9 +2,10 @@ import random
 import time
 
 from Point import Point
-from SingleLinkageClustering import SingleLinkageClustering
-
 ## Time tests
+from SingleLinkageClusteringV1 import SingleLinkageClusteringV1
+from SingleLinkageClusteringV2 import SingleLinkageClusteringV2
+from SingleLinkageClusteringV3 import SingleLinkageClusteringV3
 
 test_sizes = [10, 100]
 replications = 5
@@ -27,13 +28,23 @@ for test_size in test_sizes:
         points = generate_points(test_size)
 
         start_time = time.time()
-        slc = SingleLinkageClustering(points)
+        slc = SingleLinkageClusteringV1(points)
         slc.clustering(k=1)
-        total_time = time.time() - start_time
+        total_time_V1 = time.time() - start_time
+
+        start_time = time.time()
+        slc = SingleLinkageClusteringV2(points)
+        slc.clustering(k=1)
+        total_time_V2 = time.time() - start_time
+
+        start_time = time.time()
+        slc = SingleLinkageClusteringV3(points)
+        slc.clustering(k=1)
+        total_time_V3 = time.time() - start_time
 
         if test_size not in results:
             results[test_size] = {}
-        results[test_size][replication] = total_time
+        results[test_size][replication] = {'V1': total_time_V1, 'V2': total_time_V2, 'V3': total_time_V3}
 
 print(results)
 
