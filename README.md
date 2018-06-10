@@ -54,7 +54,7 @@ Also, in this phase we have defined also some basic classes used to modulize the
 This version corresponds to the *SingleLinkageClusteringV1.py* file. It implements a way of computing whose are the nearest clusters to combine them. As is the most basic version, to find the nearest clusters it checks all the possible combinations and takes the best. With this implementation, we have our first working version and we can run some clustering. Following images show some examples generated with the *run_example* script.
 
 <p align="center"><img src="./img/V1_Example_20_3.PNG" alt="Example of clustering using the version: 20 points in 3 clusters" title="Example of clustering using the version: 20 points in 3 clusters"/>
-<img src="./img/V1_Example_20_3.PNG" alt="Example of clustering using the version: 20 points in 5 clusters" title="Example of clustering using the version: 20 points in 3 clusters"/></p>
+<img src="./img/V1_Example_20_5.PNG" alt="Example of clustering using the version: 20 points in 5 clusters" title="Example of clustering using the version: 20 points in 3 clusters"/></p>
 
 ### Version 2
 
@@ -70,7 +70,23 @@ This version corresponds to the *SingleLinkageClusteringV4.py* file. We have tri
 
 ## Comparision
 
+Once the implementations are finished, we want to compare numerically the real improvement of the different versions. We have designed a very simple experiment to do this comparison:
+* Geometrical space is fixed: 2-dimensional with coordinates between 0 and 100.
+* Each case is replicated five times, and the computational times are the mean of these replications.
+* The experiments are repeated for 7 number of points: 10, 20, 40, 80, 160, 320, 640.
+
+So, the results of this experiment is reflected on the flowwing plot:
+<p align="center"><img src="./img/Timing.PNG" alt="Computing time comparison between the implemented versions" title="Computing time comparison between the implemented versions"/></p>
+
+As we can hope, between the three first versions we can check a big improvement. But, for the last version, we can't appreciate a big improvement on the computation time. And, taking account that the last version works with buckets and the result is not the best, we can't consider an improvement with the fourth version.
+
 ## Conclusions and future work
+
+With this project, I have had the opportunity to understand in deep the working of the *Single Linkage Clustering* algorithm. Implement an algorithm studied theoretically is a very good example of learn doing. And, although I have not applied completely the *Locality-sensitive hashing* in our algorithm, I tried to implement a very simplified idea of this and it doesn't work faster.
+
+On another hand, I have a bad taste with this project because I have not achieved to implement a working version of the *Locality-sensitive hashing* optimization for our clustering algorithm. Beside of this, I have investigated this subject and I have caught the essence of this technique. But, for do a correct implementation, I have to understand it completely including all the parameters and the hashing functions in order to select the most appropriate ones.
+
+So, the obvious future work of this project is to apply the *Locality-sensitive hashing* fully and check how it improves the computing time of the algorithm. Also, as it doesn't ensure an exact result, it can be interesting find for a quality measurement for the clustering and compare also the difference in clustering quality and the time computing. 
 
 ## References
 
