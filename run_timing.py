@@ -10,10 +10,12 @@ from versions.SingleLinkageClusteringV2 import SingleLinkageClusteringV2
 from versions.SingleLinkageClusteringV3 import SingleLinkageClusteringV3
 from versions.SingleLinkageClusteringV4 import SingleLinkageClusteringV4
 
-test_sizes = [10, 50, 150, 300, 500, 750, 1000]
+plot_filename = 'Timing.PNG'
+test_sizes = [10, 20, 40, 80, 160, 320, 640]
 replications = 5
 dimensions = 2
 
+random.seed(24011994)
 
 def rand():
     return random.uniform(0., 100.)
@@ -24,8 +26,6 @@ def generate_points(n):
 
 
 results = {}
-
-random.seed(24011994)
 for test_size in test_sizes:
     for replication in range(replications):
         print('Executing..', test_size, replication)
@@ -73,5 +73,5 @@ plt.plot(test_sizes, V4_times, c='y')
 
 plt.legend(['V1', 'V2', 'V3', 'V4'], loc='upper left')
 
-plt.savefig('img/Timing.PNG')
+plt.savefig('img/' + plot_filename)
 plt.show()
