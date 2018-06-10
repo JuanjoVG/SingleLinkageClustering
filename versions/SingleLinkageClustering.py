@@ -1,6 +1,6 @@
 import copy
 
-from Cluster import Cluster
+from classes.Cluster import Cluster
 
 
 class SingleLinkageClustering:

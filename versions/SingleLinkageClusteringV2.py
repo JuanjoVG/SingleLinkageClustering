@@ -1,6 +1,6 @@
 import math
 
-from SingleLinkageClustering import SingleLinkageClustering
+from versions.SingleLinkageClustering import SingleLinkageClustering
 
 
 class SingleLinkageClusteringV2(SingleLinkageClustering):

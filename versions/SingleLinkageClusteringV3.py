@@ -1,6 +1,6 @@
 import math
 
-from SingleLinkageClustering import SingleLinkageClustering
+from versions.SingleLinkageClustering import SingleLinkageClustering
 
 
 class SingleLinkageClusteringV3(SingleLinkageClustering):
@@ -13,12 +13,10 @@ class SingleLinkageClusteringV3(SingleLinkageClustering):
         min_id1 = None
         min_id2 = None
 
-        for id1 in self.distance_matrix.keys():
-            id1_distances = self.distance_matrix[id1]
-            for id2 in id1_distances.keys():
-                if id1 == id2:
-                    continue
-                distance = id1_distances[id2]
+        keys = list(self.distance_matrix.keys())
+        for i, id1 in enumerate(keys):
+            for id2 in keys[i + 1:]:
+                distance = self.distance_matrix[id1][id2]
                 if distance < min_distance:
                     min_distance = distance
                     min_id1 = id1
